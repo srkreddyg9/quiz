@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Infrastructure Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin: 8px 0;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin: 20px 0;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Azure Infrastructure Quiz</h1>
+
+    <div class="question">
+        <p>1. What is an Azure tenant?</p>
+        <ul class="options">
+            <li><input type="radio" name="q1" value="a"> A) A physical data center where Azure services are hosted</li>
+            <li><input type="radio" name="q1" value="b"> B) A dedicated instance of Azure Active Directory that represents an organization</li>
+            <li><input type="radio" name="q1" value="c"> C) A subscription under which Azure resources are created</li>
+            <li><input type="radio" name="q1" value="d"> D) A virtual network in Azure</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p>2. Which of the following best describes an Azure Resource Group?</p>
+        <ul class="options">
+            <li><input type="radio" name="q2" value="a"> A) A container for managing resources in Azure</li>
+            <li><input type="radio" name="q2" value="b"> B) A physical server hosting multiple Azure services</li>
+            <li><input type="radio" name="q2" value="c"> C) A tool for managing Azure subscriptions</li>
+            <li><input type="radio" name="q2" value="d"> D) An Azure service for managing identity and access</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p>3. What is the primary purpose of Role-Based Access Control (RBAC) in Azure?</p>
+        <ul class="options">
+            <li><input type="radio" name="q3" value="a"> A) To manage virtual networks and subnets</li>
+            <li><input type="radio" name="q3" value="b"> B) To assign permissions to users and groups for accessing resources</li>
+            <li><input type="radio" name="q3" value="c"> C) To monitor resource usage and cost</li>
+            <li><input type="radio" name="q3" value="d"> D) To create and manage virtual machines</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p>4. Which Azure component is responsible for managing access to resources based on user roles?</p>
+        <ul class="options">
+            <li><input type="radio" name="q4" value="a"> A) Azure Active Directory</li>
+            <li><input type="radio" name="q4" value="b"> B) Azure Monitor</li>
+            <li><input type="radio" name="q4" value="c"> C) Azure DevOps</li>
+            <li><input type="radio" name="q4" value="d"> D) Azure Security Center</li>
+        </ul>
+    </div>
+
+    <div class="question">
+        <p>5. What is the relationship between an Azure subscription and a resource group?</p>
+        <ul class="options">
+            <li><input type="radio" name="q5" value="a"> A) A subscription can contain multiple resource groups</li>
+            <li><input type="radio" name="q5" value="b"> B) A resource group can contain multiple subscriptions</li>
+            <li><input type="radio" name="q5" value="c"> C) They are the same, with different names</li>
+            <li><input type="radio" name="q5" value="d"> D) A resource group is used only for billing purposes</li>
+        </ul>
+    </div>
+
+    <button class="btn" onclick="checkAnswers()">Submit</button>
+    
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    function checkAnswers() {
+        const correctAnswers = ['b', 'a', 'b', 'a', 'a'];
+        let score = 0;
+
+        correctAnswers.forEach((answer, index) => {
+            const questionName = `q${index + 1}`;
+            const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+
+            if (selectedOption && selectedOption.value === answer) {
+                score++;
+            }
+        });
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.textContent = `You scored ${score} out of ${correctAnswers.length}.`;
+    }
+</script>
+
+</body>
+</html>
